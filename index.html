@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/Scripts/layui/css/layui.css" rel="stylesheet" />
+    <link href="/Content/index.css?v=20171020110832" rel="stylesheet" />
+    <title>万达旅业CRM管理系统</title>
+    
+</head>
+<body class="layui-layout-body">
+    
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">万达旅业CRM管理系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left" lay-filter="headnav">
+            <li class="layui-nav-item" ul-id="menunav1"><a href="javascript:;">控制台</a></li>
+            <li class="layui-nav-item" ul-id="menunav2"><a href="javascript:;">统计</a></li>
+            <li class="layui-nav-item" ul-id="menunav3"><a href="javascript:;">系统设置</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item none">
+                <a href="javascript:;">
+                    <img src="/favicon.ico" class="layui-nav-img">
+                    管理员
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/Account/LoginOut">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+
+            <ul class="layui-nav layui-nav-tree none" ul-id="menunav1" lay-filter="sidenav">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">控制台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" a-href="/statics/index">数据汇总</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <ul class="layui-nav layui-nav-tree none" ul-id="menunav2" lay-filter="sidenav">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">统计</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" a-href="/statics/page_1">统计1</a></dd>
+                        <dd><a href="javascript:;" a-href="/statics/page_2">统计2</a></dd>
+                        <dd><a href="javascript:;" a-href="/statics/page_3">统计3</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <ul class="layui-nav layui-nav-tree none" ul-id="menunav3" lay-filter="sidenav">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" a-href="/sysmanage/index">系统设置1</a></dd>
+                        <dd><a href="javascript:;" a-href="/sysmanage/index2">系统设置2</a></dd>
+                        <dd><a href="javascript:;" a-href="/sysmanage/index3">系统设置3</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contentpannel">
+        <div class="layui-tab layui-tab-card" lay-filter="page-content" lay-allowClose="true">
+            <ul class="layui-tab-title"></ul>
+            <div class="layui-tab-content"></div>
+        </div>
+    </div>
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+
+
+
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="/Scripts/layui/layui.js"></script>
+    
+    <script type="text/javascript">
+    //JavaScript代码区域
+    layui.use('element', function() {
+        var element = layui.element;
+
+        //水平菜单点击监听 
+        element.on('nav(headnav)', function (elem) {
+            console.log(elem); //得到当前点击的DOM对象
+            var sidenav = $(".layui-side ul[ul-id='" + $(elem).attr("ul-id") + "']");
+            //删除所有ul
+            $(".layui-side").find("ul").addClass("none");
+            //删除tab
+            $(".x-iframe").each(function () {
+                element.tabDelete('page-content',$(this).attr('tab-id'));
+            });
+            sidenav.removeClass("none");
+            sidenav.find("li").eq(0).find("dd").eq(0).click();
+        });
+
+        //垂直菜单点击监听
+        element.on('nav(sidenav)', function (elem) {
+            console.log(elem); //得到当前点击的DOM对象
+            var index = $(this).parents('.layui-nav').find('dd').index(this);
+            var title = elem.find('a').text();
+            var url = elem.find('a').attr('a-href');
+            for (var i = 0; i < $('.x-iframe').length; i++) {
+                var xiframe = $('.x-iframe').eq(i);
+                if (xiframe.attr('src') == url) {
+                    element.tabChange('page-content', xiframe.attr('tab-id'));
+                    return;
+                }
+            };
+            var tabId = "sidenav-" + index;
+            res = element.tabAdd('page-content', {
+                id: tabId,
+                title: title//用于演示
+                , content: '<iframe frameborder="0" src="' + url + '" class="x-iframe" tab-id="' + tabId + '"></iframe>'
+                
+            });
+            element.tabChange('page-content', tabId);
+        });
+
+        //默认第一个点击
+        $(".layui-layout-left").find('li').eq(0).click();
+    });
+
+    </script>
+
+</body>
+</html>
+

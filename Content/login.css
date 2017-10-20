@@ -1,0 +1,220 @@
+﻿@charset "utf-8";
+@import url(""); /*引用CSS*/
+/*css reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, blockquote, textarea, p, th, td, table {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, select, button, textarea {
+    font-size: 12px;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+/*统一不同浏览器字体大小*/
+table {
+    border-collapse: collapse;
+}
+
+button {
+    cursor: pointer;
+}
+
+fieldset {
+    border: 0;
+}
+
+img {
+    vertical-align: middle;
+    border: 0 none;
+}
+/*图片去边框并居中*/
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+p {
+    text-align: left;
+}
+
+i, cite, em {
+    font-style: normal;
+    font-weight: normal;
+}
+
+abbr, acronym {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial,Verdana,"微软雅黑";
+    background: #fff;
+}
+
+q:before, q:after {
+    content: '';
+}
+/* 图片热点去掉点击链接时的虚线外框 */
+a:focus {
+    -moz-outline-style: none; /* FF去掉点击链接时的虚线外框 */
+}
+
+
+
+/*控制高度足够小*/
+input, select {
+    border: 1px #9bbedc solid;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+
+.loginbar {
+    color: #fff;
+    padding-left: 10px;
+    margin-top: 5px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+    .loginbar a, .loginbar a:hover {
+        color: #fff;
+    }
+
+        .loginbar a:hover {
+            text-decoration: underline;
+        }
+
+.login {
+    background: url(/content/images/loginbg.jpg) repeat-x;
+    height: 254px;
+    position: absolute;
+    top: 50%;
+    z-index: 9;
+    width: 100%;
+    margin-top: -177px;
+}
+
+.loginboxbg {
+    background: url(/content/images/loginimgbg.jpg) no-repeat 50% 0;
+    height: 224px;
+    width: 1040px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.loginlogo {
+    padding-bottom: 10px;
+    height: 52px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: -62px;
+    text-align: center;
+    font-size: 20px;
+    color: #0b5da6;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.logininpbox {
+    width: 305px;
+    height: 38px;
+    border: 1px #d1d1d1 solid;
+    background: #fff;
+    text-align: left;
+    margin-top: 0px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.logininp {
+    border: 0;
+    vertical-align: middle;
+    width: 245px;
+    font-size: 14px;
+}
+
+.logintit {
+    text-align: left;
+    font-size: 20px;
+    color: #0861a7;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    padding-bottom: 10px;
+}
+
+.loginbtn_btn {
+    background: #e0a85d;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    width: 306px;
+    height: 36px;
+    border: 1px #045290 solid;
+    font-weight: bold;
+}
+
+.loginingbtn_btn {
+    background: #6495bb;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    width: 306px;
+    height: 36px;
+    border: 1px #4b88b8 solid;
+}
+
+.loginbtn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input.inpradio {
+    width: 13px;
+    margin-left: 15px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+input.chbox {
+    border: 1px #9bbedc solid;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 13px;
+}
+
+input.checkbox {
+    border: 1px #9bbedc solid;
+    vertical-align: middle;
+    width: 13px;
+}
+
+input.input_noborder {
+    border: 0;
+}
+
+.marleft10 {
+    margin-left: 10px;
+}

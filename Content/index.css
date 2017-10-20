@@ -1,0 +1,11 @@
+﻿ .none {
+            display: none;
+        }
+ .contentpannel {
+    margin-left: 200px;
+    padding: 10px;
+ }
+ .contentpannel iframe {
+     height: 100%;
+     width: 100%;
+ }
